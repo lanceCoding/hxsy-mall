@@ -1,0 +1,121 @@
+<!-- 首页 -->
+<!-- 店招 -->
+<view class="hd">
+    <!-- 浮层 -->
+    <view class="overlay {{isOverlayVisible? 'show' : ''}}">
+        <!-- 关闭浮层的按钮 -->
+        <image bindtap="hideOverlay" class="close" src="/images/close-bg.png" mode=""/>
+       
+        <view class="overlay-content">
+            <scroll-view class="overlay-scroll" scroll-y>
+                <view>
+                <image class="cover" src="{{detail.cover}}" mode="widthFix"/></view>
+                <view class="detail">
+                    <view class="title">{{detail.name}}</view>
+                    <view class="stock">库存：{{detail.count}}</view>
+                    <view class="price-stepper">
+                        <view class="price-l">{{detail.price}}</view>
+                        <view class="stepper">
+                            <!-- 减号 -->
+                            <image src="/images/subtract.png" class="symbol" bindtap="subtract" wx:if="{{cartData[detail._id]}}" data-food-id="{{detail._id}}" />
+                            <!-- 数量 -->
+                            <view class="value">{{cartData[detail._id]}}</view>
+                            <!-- 加号 -->
+                            <image src="/images/add.png" class="symbol" bindtap="add" data-food-id="{{detail._id}}" />
+                        </view>
+                    </view>
+                </view>
+                <view class="blank"></view>
+                <view class="detail">
+                    <view class="sub-title">商品详情</view>
+                    <view>{{detail.desc}}</view>
+                    <view wx:for="{{detail.details}}">
+                        <image class="detail-image" src="{{item}}" mode="widthFix"/>
+                    </view>
+                    <view class="bottom"></view>
+                </view>
+                
+            </scroll-view>
+        </view>
+    </view>
+</view>
+<!-- 菜品 -->
+<view class="bd">
+	<!-- 菜品分类 -->
+	<view class="category-container">
+        <scroll-view scroll-y class="category-scroll">
+            <!-- 分类单品 -->
+            <block wx:for="{{categoryObjects}}" wx:key="parameter">
+                <view class="category-item {{item._id == selected ? 'category-item-active' : ''}}"  bindtap="switchCategory" data-index="{{item._id}}">
+                    <!-- 标题 -->
+                    <view class="category-content">{{item.name}}</view>
+                </view>
+            </block>
+        </scroll-view>
+	</view>
+	<!-- 菜品列表 -->
+	<scroll-view class="food-container">
+		<!-- 菜品单品 -->
+		<view class="food-item" wx:for="{{goods}}" wx:key="_id" bindtap="showOverlay" data-id="{{item._id}}">
+			<!-- food list -->
+			<!-- 主图 -->
+			<view class="food-hd">
+				<image class="thumb" mode="aspectFill" src="{{item.cover}}" />
+			</view>
+			<view class="food-bd">
+				<view class="title">{{item.name}}</view>
+				<view class="summary">库存：{{item.count}}</view>
+				<view class="price-stepper">
+					<view class="price">{{item.price}}</view>
+					<view class="stepper">
+						<!-- 减号 -->
+						<image src="/images/subtract.png" class="symbol" catchtap="subtract" wx:if="{{cartData[item._id]}}" data-food-id="{{item._id}}" />
+						<!-- 数量 -->
+						<view class="value">{{cartData[item._id] == null?'':cartData[item._id]}}</view>
+						<!-- 加号 -->
+						<image src="/images/add.png" class="symbol" catchtap="add" data-food-id="{{item._id}}" />
+					</view>
+				</view>
+			</view>
+		</view>
+		<!-- ./ food list -->
+        <list_load status="{{listLoading}}">
+        </list_load>
+	</scroll-view>
+    
+</view>
+
+<!-- 购物车 -->
+<view class="cart-detail" hidden="{{!showCartDetail||!cart.count}}">
+		<view class="mask" bindtap="hideCartDetail"></view>
+		<view class="list">
+      <scroll-view class="scroll" scroll-y="true" style="height: calc(100%);">
+        <view class="item" wx:for="{{cartObjects}}" wx:for-index="id"  wx:key="_id">
+          <view class="name ellipsis">{{item.name}}</view>
+          <view class="total">￥{{item.price*cartData[item._id]}}</view>
+          <view class="stepper">
+              <!-- 减号 -->
+              <image src="/images/subtract.png" class="symbol" bindtap="subtract" data-food-id="{{item._id}}" />
+              <!-- 数量 -->
+              <view class="value">{{cartData[item._id]}}</view>
+              <!-- 加号 -->
+              <image src="/images/add.png" class="symbol" bindtap="add" data-food-id="{{item._id}}" />
+          </view>
+			  </view>
+      </scroll-view>
+		</view>
+	</view>
+
+  <!-- 底部购物icon按钮 -->
+	<view class="cart" hidden="{{cart.count == 0}}">
+		<view class="data" bindtap="showCartDetail">
+			<view class="icon">
+				<image src="/images/cart.png"></image>
+				<view class="count">{{cart.count}}</view>
+			</view>
+			<view class="total">￥{{cart.total}}</view>
+		</view>
+		<form bindsubmit="submitOrder" >
+			<button class="yellow {{cart.count?'':'disabled'}}" formType="submit" disabled="{{!cart.count}}">结算</button>
+		</form>
+	</view>

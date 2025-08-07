@@ -1,0 +1,389 @@
+{
+    "previewTableName": "o2o_order-preview",
+    "publishCacheStatus": "ready",
+    "subType": "database",
+    "schema": {
+        "x-primary-column": "_id",
+        "x-kind": "tcb",
+        "x-defaultMethods": [
+            "wedaCreate",
+            "wedaUpdate",
+            "wedaDelete",
+            "wedaGetItem",
+            "wedaGetRecords",
+            "wedaGetList",
+            "wedaBatchCreate",
+            "wedaBatchUpdate",
+            "wedaBatchDelete"
+        ],
+        "type": "object",
+        "x-relatedType": "exist",
+        "title": "o2o订单",
+        "x-viewId": "view-6a0h5qpjsw",
+        "required": [
+            "status"
+        ],
+        "properties": {
+            "owner": {
+                "default": "",
+                "x-system": true,
+                "x-id": "ba43869",
+                "name": "owner",
+                "format": "father-son",
+                "pattern": "",
+                "x-index": 4,
+                "title": "所有人",
+                "type": "string",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "amount": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "ce249f77",
+                "format": "",
+                "numberCount": 2,
+                "description": "",
+                "type": "number",
+                "x-index": 49,
+                "title": "订单金额",
+                "x-unique": false
+            },
+            "notes": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "a6b62a12",
+                "format": "",
+                "description": "",
+                "type": "string",
+                "x-index": 48,
+                "title": "备注",
+                "x-unique": false,
+                "maxLength": 4000
+            },
+            "address": {
+                "x-keyPath": "",
+                "x-id": "5fbf4935",
+                "format": "many-one",
+                "description": "",
+                "type": "object",
+                "x-index": 46,
+                "title": "地址",
+                "x-unique": false,
+                "required": [],
+                "x-parent": {
+                    "parentFieldKey": "order",
+                    "parentFieldTitle": "order",
+                    "parentDataSourceName": "o2o_address"
+                },
+                "x-required": false,
+                "name": "address",
+                "deleteWay": "doNothing",
+                "properties": {
+                    "_id": {
+                        "name": "_id",
+                        "title": "数据标识",
+                        "type": "string"
+                    }
+                }
+            },
+            "express_fee": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "132fdd1b",
+                "format": "",
+                "numberCount": 2,
+                "description": "",
+                "type": "number",
+                "x-index": 55,
+                "title": "快递费",
+                "x-unique": false
+            },
+            "_departmentList": {
+                "default": "",
+                "x-system": true,
+                "x-id": "ce8f959",
+                "format": "",
+                "name": "_departmentList",
+                "title": "所属部门",
+                "type": "array",
+                "x-index": 7,
+                "items": {
+                    "type": "string"
+                },
+                "x-unique": false
+            },
+            "express_company": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "deb5db7d",
+                "format": "",
+                "description": "",
+                "type": "string",
+                "x-index": 53,
+                "title": "快递公司",
+                "x-unique": false,
+                "maxLength": 4000
+            },
+            "createdAt": {
+                "default": 0,
+                "x-system": true,
+                "x-id": "069be91",
+                "format": "datetime",
+                "x-index": 2,
+                "type": "number",
+                "title": "创建时间",
+                "x-unique": false
+            },
+            "createBy": {
+                "default": "",
+                "x-system": true,
+                "x-id": "1142d63",
+                "name": "createBy",
+                "format": "father-son",
+                "pattern": "",
+                "x-index": 5,
+                "type": "string",
+                "title": "创建人",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "updateBy": {
+                "default": "",
+                "x-system": true,
+                "x-id": "93a079a",
+                "name": "updateBy",
+                "format": "father-son",
+                "pattern": "",
+                "x-index": 6,
+                "type": "string",
+                "title": "修改人",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "order_item": {
+                "name": "order_item",
+                "format": "one-many",
+                "deleteWay": "doNothing",
+                "title": "order_item",
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "_id": {
+                            "name": "_id",
+                            "title": "数据标识",
+                            "type": "string"
+                        }
+                    }
+                },
+                "x-parent": {
+                    "parentFieldKey": "order",
+                    "parentFieldTitle": "订单",
+                    "parentDataSourceName": "o2o_order_item"
+                }
+            },
+            "_openid": {
+                "default": "",
+                "x-system": true,
+                "x-id": "deac0f7",
+                "name": "_openid",
+                "format": "",
+                "pattern": "",
+                "description": "仅微信云开发下使用",
+                "x-index": 45,
+                "title": "记录创建者",
+                "type": "string",
+                "x-unique": false
+            },
+            "is_valid": {
+                "x-required": false,
+                "default": false,
+                "x-keyPath": "",
+                "x-id": "9fba8cbc",
+                "format": "",
+                "description": "",
+                "type": "boolean",
+                "x-index": 47,
+                "title": "是否有效",
+                "x-unique": false
+            },
+            "tracking_number": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "de14b94d",
+                "format": "",
+                "name": "tracking_number",
+                "description": "",
+                "isEnum": false,
+                "type": "string",
+                "x-index": 52,
+                "title": "快递单号",
+                "x-unique": false,
+                "maxLength": 4000
+            },
+            "_id": {
+                "default": "",
+                "x-system": true,
+                "x-id": "39e9884",
+                "format": "",
+                "pattern": "",
+                "x-index": 1,
+                "type": "string",
+                "title": "数据标识",
+                "x-unique": true
+            },
+            "user": {
+                "x-keyPath": "",
+                "x-id": "856be5ef",
+                "format": "many-one",
+                "description": "",
+                "type": "object",
+                "x-index": 46,
+                "title": "用户",
+                "x-unique": false,
+                "required": [],
+                "x-parent": {
+                    "parentFieldKey": "order",
+                    "parentFieldTitle": "order",
+                    "parentDataSourceName": "o2o_user"
+                },
+                "x-required": true,
+                "name": "user",
+                "deleteWay": "doNothing",
+                "properties": {
+                    "_id": {
+                        "name": "_id",
+                        "title": "数据标识",
+                        "type": "string"
+                    }
+                }
+            },
+            "status": {
+                "x-required": true,
+                "x-keyPath": "",
+                "x-id": "4c38be22",
+                "x-enumObj": [
+                    {
+                        "description": "",
+                        "label": "待支付",
+                        "value": "TO_PAY"
+                    },
+                    {
+                        "description": "",
+                        "label": "待发货",
+                        "value": "TO_SEND"
+                    },
+                    {
+                        "description": "",
+                        "label": "待收货",
+                        "value": "TO_RECEIVE"
+                    },
+                    {
+                        "description": "",
+                        "label": "已完成",
+                        "value": "FINISHED"
+                    },
+                    {
+                        "description": "",
+                        "label": "已取消",
+                        "value": "CANCELED"
+                    },
+                    {
+                        "description": "",
+                        "label": "申请退货",
+                        "value": "RETURN_APPLIED"
+                    },
+                    {
+                        "description": "",
+                        "label": "拒绝退货申请",
+                        "value": "RETURN_REFUSED"
+                    },
+                    {
+                        "description": "",
+                        "label": "退货完成",
+                        "value": "RETURN_FINISHED"
+                    },
+                    {
+                        "description": "",
+                        "label": "拒绝退款",
+                        "value": "REFUND_REFUSED"
+                    }
+                ],
+                "description": "",
+                "type": "string",
+                "x-index": 2,
+                "title": "状态",
+                "x-unique": false,
+                "x-multi-select": false,
+                "maxLength": 64,
+                "enum": [
+                    "TO_PAY",
+                    "TO_SEND",
+                    "TO_RECEIVE",
+                    "FINISHED",
+                    "CANCELED",
+                    "RETURN_APPLIED",
+                    "RETURN_REFUSED",
+                    "RETURN_FINISHED",
+                    "REFUND_REFUSED"
+                ]
+            },
+            "updatedAt": {
+                "default": 0,
+                "x-system": true,
+                "x-id": "6358b2e",
+                "format": "datetime",
+                "x-index": 3,
+                "title": "更新时间",
+                "type": "number",
+                "x-unique": false
+            },
+            "trans_type": {
+                "x-keyPath": "",
+                "x-id": "ba664c98",
+                "format": "x-enum",
+                "description": "",
+                "isEnum": false,
+                "x-option-name": "trans_type",
+                "type": "string",
+                "x-index": 46,
+                "title": "配送方式",
+                "x-unique": false,
+                "x-required": false,
+                "default": "DELI",
+                "x-enum-type": "general-option",
+                "name": "trans_type",
+                "x-multi-select": false,
+                "maxLength": 64
+            }
+        }
+    },
+    "dbInstanceType": "MYSQL",
+    "title": "o2o订单",
+    "name": "o2o_order",
+    "dbLinkType": "internal",
+    "tableNameRule": "only_name",
+    "type": "database",
+    "childDataSourceNames": null,
+    "updateTime": "2025-02-13T06:54:03",
+    "publishedTableName": "o2o_order",
+    "id": "data-4s1UXMiNz",
+    "dbSourceType": "internal_mysql",
+    "methods": [],
+    "fun": "{\"onlineVersion\": 34, \"previewVersion\": 33, \"onlinePublishAt\": 1739429643997, \"prviewPublishAt\": 1739429643485}",
+    "publishStatus": 1,
+    "configuration": {}
+}

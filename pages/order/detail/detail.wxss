@@ -1,0 +1,129 @@
+/*detail.wxss*/
+/**
+ *
+
+Hailetu *
+
+ * @author Hailetu
+ */
+
+.container {
+	font-size: var(--font-title);
+    color: #333;
+    padding: var(--pg-padding);
+}
+
+/*头部*/
+.summary {
+    background:var(--primary);
+    color: var(--bg-primary);
+    font-size: 40rpx;
+    font-weight: bold;
+	text-align: center;
+    padding: 40rpx;
+    border-radius: var(--radius);
+    margin-bottom: 20rpx;
+}
+
+/*状态*/
+.status {
+	margin: 5px;
+}
+.divide{
+    margin-top: 14rpx;
+    padding: 14rpx 0;
+    border-top: 1rpx solid var(--line);
+}
+
+/*操作*/
+.operate {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: var(--bg-primary);
+    border-top:1rpx solid var(--line) ;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	width: 100%;
+	/* margin: 15px auto; */
+}
+
+/*操作按钮*/
+.operate .button {
+	border-radius: 3px;
+	padding: 8px 13px;
+	margin: 15px;
+}
+
+/*取消*/
+.operate .cancel {
+	background: white;
+	border: 1px solid var(--line-dark);
+	color:var(--ft-content);
+}
+
+/*支付*/
+.operate .payment {
+	background:var(--ft-amount);
+	color:var(--bg-primary);
+}
+
+
+.info {
+	padding-bottom: 160rpx;
+} 
+
+/*联系商家*/
+.contact {
+    width: 120rpx;
+    background-color: #fff;
+	height: 80rpx;
+	border: 1px solid var(--line-dark);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	color:var(--ft-content);
+	font-size: var(--font-content);
+}
+
+/*电话图标*/
+.telephone {
+	width: 20px;
+	height: 20px;
+}
+
+/*通用列表头*/
+.common-info {
+	margin: 30rpx 0;
+	color: var(--ft-content);
+    font-size: var(--font-content);
+}
+
+.common-info .bd {
+    /* padding-left: 14px; */
+    width: 100%;
+	display: flex;
+	flex-direction: row;
+    align-items: top;
+    justify-content:space-between;
+	line-height: 220%;
+}
+
+/*模块标题*/
+.common-info .caption {
+	margin-left: 5px;
+	font-weight: bold;
+	font-size: 18px;
+	color: #333;
+	line-height: 200%;
+}
+
+.common-info .label {
+    width:50%;
+}
+
+.common-info:last-child {
+	margin-bottom: 10px;
+}

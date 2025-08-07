@@ -1,0 +1,34 @@
+<!-- <view class='container'>
+  <view class = "item" wx:for="{{list}}" wx:key="_id" wx:for-index="index"  bindtap='select'>
+    <text class='address'>{{item.location}}{{item.address}}</text>
+    <text class='name' >{{item.name}}</text>
+    <text class='tel'>{{item.phone}}</text>
+    <image class='eidt' src = "../../../images/icon/modify.png" mode = "widthFix" data-index='{{index}}' bindtap = "edit"/>
+  </view>
+</view>
+<view class = "add" bindtap = "addAddre">
+  <image  class = "left" src = "../../../images/add.png" mode = "widthFix" />
+  <view class = "text">新增个人地址</view>
+  <image class="right" src = "../../../images/arrow.png" mode = "widthFix" />
+</view> -->
+<view class='container'>
+    <view class="product-name-wrap" wx:for="{{list}}" wx:key="_id"  >
+        <view bindtap='select' data-item='{{item}}'>
+            <view class="ui-list-item-info">{{item.name}}
+                <text decode="{{true}}" space="{{true}}">  </text> {{item.phone}}
+            </view>
+            <view >
+                <p>{{item.location}}{{item.address}}</p>
+            </view>
+        </view>
+        <view class="ui-list-item-time">
+            <p class="del" data-id="{{item._id}}" bindtap="delete">删除</p>
+            <p class="edit"  data-item="{{item}}" bindtap="edit">编辑</p>
+        </view>
+    </view>
+    <view class="btn">
+        <button class="btn-p-m" bindtap="addAddress">
+            新增地址
+        </button>
+    </view>
+</view>

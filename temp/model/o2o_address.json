@@ -1,0 +1,276 @@
+{
+    "previewTableName": "o2o_address-preview",
+    "publishCacheStatus": "ready",
+    "subType": "database",
+    "schema": {
+        "x-primary-column": "address",
+        "x-kind": "tcb",
+        "x-defaultMethods": [
+            "wedaCreate",
+            "wedaUpdate",
+            "wedaDelete",
+            "wedaGetItem",
+            "wedaGetRecords",
+            "wedaGetList",
+            "wedaBatchCreate",
+            "wedaBatchUpdate",
+            "wedaBatchDelete"
+        ],
+        "type": "object",
+        "x-relatedType": "exist",
+        "title": "o2o收货信息",
+        "x-viewId": "view-6a0h5qpwg1",
+        "required": [
+            "address",
+            "phone",
+            "name"
+        ],
+        "properties": {
+            "owner": {
+                "default": "",
+                "x-system": true,
+                "x-id": "7330061",
+                "name": "owner",
+                "format": "father-son",
+                "pattern": "",
+                "x-index": 4,
+                "title": "所有人",
+                "type": "string",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "address": {
+                "x-required": true,
+                "x-keyPath": "",
+                "x-id": "557ff4e5",
+                "format": "",
+                "name": "address",
+                "description": "",
+                "isEnum": false,
+                "type": "string",
+                "x-index": 6,
+                "title": "收货地址",
+                "x-unique": false,
+                "maxLength": 4000
+            },
+            "_departmentList": {
+                "default": "",
+                "x-system": true,
+                "x-id": "dbf3141",
+                "format": "",
+                "name": "_departmentList",
+                "title": "所属部门",
+                "type": "array",
+                "x-index": 7,
+                "items": {
+                    "type": "string"
+                },
+                "x-unique": false
+            },
+            "latitude": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "75dc1d8a",
+                "format": "",
+                "description": "",
+                "type": "number",
+                "x-index": 47,
+                "title": "latitude",
+                "x-unique": false
+            },
+            "createdAt": {
+                "default": 0,
+                "x-system": true,
+                "x-id": "19f48f6",
+                "format": "datetime",
+                "x-index": 2,
+                "type": "number",
+                "title": "创建时间",
+                "x-unique": false
+            },
+            "createBy": {
+                "default": "",
+                "x-system": true,
+                "x-id": "7b3c20e",
+                "name": "createBy",
+                "format": "father-son",
+                "pattern": "",
+                "x-index": 5,
+                "type": "string",
+                "title": "创建人",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "phone": {
+                "x-required": true,
+                "x-keyPath": "",
+                "x-id": "e288b795",
+                "format": "phone",
+                "description": "",
+                "type": "string",
+                "x-index": 4,
+                "title": "联系电话",
+                "x-unique": false,
+                "maxLength": 32
+            },
+            "updateBy": {
+                "default": "",
+                "x-system": true,
+                "x-id": "93a079a",
+                "name": "updateBy",
+                "format": "father-son",
+                "pattern": "",
+                "x-index": 6,
+                "type": "string",
+                "title": "修改人",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "_openid": {
+                "default": "",
+                "x-system": true,
+                "x-id": "32b164f",
+                "name": "_openid",
+                "format": "",
+                "pattern": "",
+                "description": "仅微信云开发下使用",
+                "x-index": 45,
+                "title": "记录创建者",
+                "type": "string",
+                "x-unique": false
+            },
+            "name": {
+                "x-required": true,
+                "x-keyPath": "",
+                "x-id": "b92fb9c6",
+                "format": "",
+                "description": "",
+                "type": "string",
+                "x-index": 2,
+                "title": "收货人",
+                "x-unique": false,
+                "maxLength": 4000
+            },
+            "location": {
+                "x-required": false,
+                "x-area-code-type": 2,
+                "x-keyPath": "",
+                "x-id": "b7f8e3c2",
+                "format": "x-area-code",
+                "description": "",
+                "type": "string",
+                "x-index": 51,
+                "title": "省市区",
+                "x-unique": false,
+                "maxLength": 128
+            },
+            "_id": {
+                "default": "",
+                "x-system": true,
+                "x-id": "d4cec39",
+                "format": "",
+                "pattern": "",
+                "x-index": 1,
+                "type": "string",
+                "title": "数据标识",
+                "x-unique": true
+            },
+            "user": {
+                "x-keyPath": "",
+                "x-id": "27c63fc6",
+                "format": "many-one",
+                "description": "",
+                "type": "object",
+                "x-index": 46,
+                "title": "用户",
+                "x-unique": false,
+                "required": [],
+                "x-parent": {
+                    "parentFieldKey": "address",
+                    "parentFieldTitle": "address",
+                    "parentDataSourceName": "o2o_user"
+                },
+                "x-required": true,
+                "name": "user",
+                "deleteWay": "doNothing",
+                "properties": {
+                    "_id": {
+                        "name": "_id",
+                        "title": "数据标识",
+                        "type": "string"
+                    }
+                }
+            },
+            "updatedAt": {
+                "default": 0,
+                "x-system": true,
+                "x-id": "9aa7e77",
+                "format": "datetime",
+                "x-index": 3,
+                "title": "更新时间",
+                "type": "number",
+                "x-unique": false
+            },
+            "longitude": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "6d94c256",
+                "format": "",
+                "description": "",
+                "type": "number",
+                "x-index": 46,
+                "title": "longitude",
+                "x-unique": false
+            },
+            "order": {
+                "name": "order",
+                "format": "one-many",
+                "deleteWay": "doNothing",
+                "title": "order",
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "_id": {
+                            "name": "_id",
+                            "title": "数据标识",
+                            "type": "string"
+                        }
+                    }
+                },
+                "x-parent": {
+                    "parentFieldKey": "address",
+                    "parentFieldTitle": "地址",
+                    "parentDataSourceName": "o2o_order"
+                }
+            }
+        }
+    },
+    "dbInstanceType": "MYSQL",
+    "title": "o2o收货信息",
+    "name": "o2o_address",
+    "dbLinkType": "internal",
+    "tableNameRule": "only_name",
+    "type": "database",
+    "childDataSourceNames": null,
+    "updateTime": "2025-02-10T07:35:58",
+    "publishedTableName": "o2o_address",
+    "id": "data-4rSKTE65Y",
+    "dbSourceType": "internal_mysql",
+    "methods": [],
+    "fun": "{\"onlineVersion\": 16, \"previewVersion\": 14, \"onlinePublishAt\": 1739172958951, \"prviewPublishAt\": 1739172947488}",
+    "publishStatus": 1,
+    "configuration": {}
+}

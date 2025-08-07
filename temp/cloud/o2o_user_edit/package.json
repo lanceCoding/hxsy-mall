@@ -1,0 +1,16 @@
+{
+    "name": "o2o_edit_user",
+    "version": "1.0.0",
+    "description": "更新用户信息",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "wx-server-sdk": "~2.4.0",
+      "@cloudbase/node-sdk": "3.2"
+    }
+  }
+  

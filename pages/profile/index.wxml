@@ -1,0 +1,71 @@
+<!--pages/my/my3.wxml-->
+<view class="top-bg"></view>
+<view class="box">
+  <!-- 头像 -->
+  <view class="head-box">
+    <button class="avatar">
+      <image class="head-img" src="/images/default-avatar.png" mode="widthFix"></image>
+    </button>
+    <!-- <view class="tip">{{login.show?'欢迎使用':'当前未登录，请登录！'}}</view> -->
+    <view class="tip">{{user.nickName}}</view>
+  </view>
+  <!-- 第一部分列表 -->
+  <view>
+    <button class="row" style="width: 100%;" bindtap="addressList">
+      <view class="left">
+        <text class="text">地址管理</text>
+      </view>
+      <image class="arrow-icon" src="/images/arrow.png" mode="aspectFit"></image>
+    </button>
+    <button class="row" style="width: 100%;" bindtap="orderList">
+      <view class="left">
+        <text class="text">我的订单</text>
+      </view>
+      <image class="arrow-icon" src="/images/arrow.png" mode="aspectFit"></image>
+    </button>
+    <button class="row" style="width: 100%;" bindtap="phoneEdit">
+      <view class="left">
+        <text class="text">个人信息</text>
+      </view>
+      <image class="arrow-icon" src="/images/arrow.png" mode="aspectFit"></image>
+    </button>
+    <button class="row" style="width: 100%;border-bottom: none;" open-type="contact">
+      <view class="left">
+        <text class="text">联系客服</text>
+      </view>
+      <image class="arrow-icon" src="/images/arrow.png" mode="aspectFit"></image>
+    </button>
+  </view>
+</view>
+<!-- 第二部分列表 -->
+<!-- <view class="end">
+  <button open-type="share" class="row" style="width: 100%;">
+    <view class="left">
+      
+      <text class="text">分享好友</text>
+    </view>
+    <view class="right">》</view>
+  </button>
+  <button open-type="contact" class="row" style="width: 100%;border-bottom: none;">
+    <view class="left">
+      <text class="text">在线客服</text>
+    </view>
+    <view class="right">》</view>
+  </button>
+</view> -->
+<!-- 第三部分列表 -->
+<!-- <view class="end">
+  <button wx:if="{{login.line}}" bindtap="exitClick" class="row" style="width: 100%;border-bottom: none;">
+    <view class="left">
+      <text class="text">退出登录</text>
+    </view>
+  </button>
+  <button class="row" open-type="chooseAvatar" bindchooseavatar="chooseAvatar" style="width: 100%;border-bottom: none;" wx:else>
+    <view class="left">
+      
+      <text class="text">立即登录</text>
+    </view>
+  </button>
+</view>
+<view class="footer">
+</view> -->

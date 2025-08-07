@@ -1,0 +1,112 @@
+<!-- detail.wxml -->
+<!-- 订单详情 -->
+
+<view class="container">
+    <view class="summary">
+        <view class="status">
+            <block>{{order.statusDesc}}</block>
+        </view>
+        <!-- 订单操作 -->
+    </view>
+
+    <view class="address-container">
+        <view wx:if="{{order.trans_type != 'DELI'}}" >
+            <view class="item" >
+                <image src="/images/location.png" class="location" />
+                <view class="bd">
+                    <view class="receiver">
+                        <view class="firstname">{{user.nickName}}</view>
+                        <!-- <view class="gender">{{address.gender == 1 ? '先生' : '女士'}}</view> -->
+                        <view class="mobile">{{user.phoneNumber}}</view>
+                    </view>
+                    <view class="detail">自提地址：{{shop.shop_info.location}}{{shop.shop_info.address}}  {{shop.shop_info.phone}}</view>
+                    <view class="detail">收货说明：{{shop.shop_info.notes}}</view>
+                </view>
+                <view class="arrow"></view>
+            </view>
+        </view>
+        <!-- 配送展示 -->
+        <view wx:if="{{order.trans_type == 'DELI'}}">
+            <!-- 用户已添加过地址 -->
+            <view class="item">
+                <image src="/images/location.png" class="location" />
+                <view class="bd">
+                    <view class="receiver">
+                        <view class="firstname">{{order.address.name}}</view>
+                        <!-- <view class="gender">{{address.gender == 1 ? '先生' : '女士'}}</view> -->
+                        <view class="mobile">{{order.address.phone}}</view>
+                    </view>
+                    <view class="detail">{{order.address.location}}{{order.address.address}}</view>
+                    <view class="detail">收货说明：{{shop.shop_info.notes}}</view>
+                </view>
+                <view class="arrow"></view>
+            </view>
+        </view>
+	</view>
+    <view class='divide'>
+    </view>
+    <!-- 商品清单 -->        
+        <!-- 店铺信息 -->
+        <!-- <view class="header">
+            <image src="{{seller.logo.url}}" class="logo" />
+            <view class="title">{{seller.name}}</view>
+        </view> -->
+
+        <!-- 商品清单 -->
+	<view class="order-info">
+        <view class="title">商品列表</view>
+		<!-- 清单 -->
+        <!-- <view class="title">商品列表</view> -->
+		<view class="spu-list">
+			<view class="item" wx:for="{{order.order_item}}" wx:key="_id">
+                <view class="left">
+                <image class="thumb" mode="aspectFill" src="{{item.snapshot.cover}}" />
+                </view>
+                <view class="right">
+                <view class="title">{{item.snapshot.name}}</view>
+                <view class='sub-info'>
+                    <view class="quantity">x{{item.count}}</view>
+                    <view class="price">¥ {{item.pay_price}}</view>
+                </view>
+                </view>
+			</view>
+		</view>
+
+        <!-- 商品价格 -->
+		<!-- <view class="item">
+			<view class="express-label">商品</view>
+			<view class="express-fee">{{amount}}</view>
+		</view> -->
+
+		<!-- 配送费 -->
+		<view class="amout" wx:if="{{order.trans_type == 'DELI'}}">
+           
+		</view>
+
+        <view class="amout">
+            <view class="amout-fee amout-total">¥ {{order.amount}}</view>
+			<view class="amout-label ">合计：</view>
+        </view>
+        <view class="operate" wx:if="{{order.canComfirm }}">
+            <button class="button payment" bindtap="onConfirmReceive">确认收货</button>
+        </view>
+
+    </view>
+
+    <view class="info">
+        <!-- 联系商家 -->
+        
+        <button  class="contact" bindtap="phoneCall"> 
+            <image src="/images/telephone.png" class="telephone" />
+            <view>联系商家</view>
+            <!-- open-type="contact" -->
+        </button>
+        
+    </view>
+
+    <view class="operate" wx:if="{{order.canCancel || order.canPay }}">
+            <button class="button cancel" wx:if="{{order.canCancel}}" bindtap="onCancel">取消订单</button>
+            <button class="button payment" wx:if="{{order.canPay}}" bindtap="payment">去支付</button>
+        </view>
+</view>
+

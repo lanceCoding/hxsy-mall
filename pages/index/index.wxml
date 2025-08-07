@@ -1,0 +1,43 @@
+<!--index.wxml-->
+<view class="container">
+    <image class="banner" src="{{shop.banner}}" mode="widthFix"/>
+    <view class="content">
+        <view class="info">
+            <view class="info-top">
+                <view class="info-section">
+                    <view class="title">{{shop.name}}</view>
+                    <view class="time-range">{{shop.trading_hours[0]}}-{{shop.trading_hours[1]}}</view>
+                </view>
+                <view class="image-section">
+                    <image src="{{shop.logo}}" mode="widthFix"></image>
+                </view>
+            </view>
+            
+            <view class="bottom-section">
+                <view class="item">
+                    <view class="icon"> 
+                        <image src="/images/address.png" mode=""/>
+                    </view>
+                    <text>{{shop.shop_info.location}}{{shop.shop_info.address}}</text>
+                </view>
+                <!-- <view >
+                <button class="item" open-type="contact">
+                    <view class="icon"> 
+                        <image src="/images/address.png" mode=""/>
+                    </view>
+                    <text>联系商家</text>
+                </button>
+                    
+                </view> -->
+            </view>
+        </view>
+        <view class="ads" wx:for="{{shop.banners}}" wx:key="_id">
+            <view class="item">
+                <image src="{{item}}" mode="aspectFill"/>
+            </view>
+        </view>
+
+
+
+    </view>
+</view>

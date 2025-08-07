@@ -1,0 +1,298 @@
+{
+    "previewTableName": "o2o_user-preview",
+    "publishCacheStatus": "ready",
+    "subType": "database",
+    "schema": {
+        "x-primary-column": "nickName",
+        "x-kind": "tcb",
+        "x-defaultMethods": [
+            "wedaCreate",
+            "wedaUpdate",
+            "wedaDelete",
+            "wedaGetItem",
+            "wedaGetRecords",
+            "wedaGetList",
+            "wedaBatchCreate",
+            "wedaBatchUpdate",
+            "wedaBatchDelete"
+        ],
+        "type": "object",
+        "x-relatedType": "exist",
+        "x-viewId": "view-6a0h5r44g0",
+        "required": [
+            "avatarUrl",
+            "nickName",
+            "openId"
+        ],
+        "properties": {
+            "owner": {
+                "default": "",
+                "x-system": true,
+                "x-id": "e222c53",
+                "name": "owner",
+                "format": "father-son",
+                "pattern": "",
+                "x-index": 4,
+                "title": "所有人",
+                "type": "string",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "address": {
+                "name": "address",
+                "format": "one-many",
+                "deleteWay": "doNothing",
+                "title": "address",
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "_id": {
+                            "name": "_id",
+                            "title": "数据标识",
+                            "type": "string"
+                        }
+                    }
+                },
+                "x-parent": {
+                    "parentFieldKey": "user",
+                    "parentFieldTitle": "用户",
+                    "parentDataSourceName": "o2o_address"
+                }
+            },
+            "gender": {
+                "x-keyPath": "",
+                "x-id": "f6836e56",
+                "format": "",
+                "description": "",
+                "isEnum": false,
+                "type": "number",
+                "x-index": 46,
+                "title": "性别",
+                "x-unique": false,
+                "x-required": false,
+                "default": 1,
+                "name": "gender",
+                "maximum": 2,
+                "minimum": 1
+            },
+            "avatarUrl": {
+                "x-required": true,
+                "default": "https://we-retail-static-1300977798.cos.ap-guangzhou.myqcloud.com/retail-ui/components-exp/avatar/avatar-1.jpg",
+                "x-keyPath": "",
+                "x-id": "a76bb1f9",
+                "format": "",
+                "description": "",
+                "type": "string",
+                "x-index": 47,
+                "title": "头像地址",
+                "x-unique": false,
+                "maxLength": 4000
+            },
+            "nickName": {
+                "x-required": true,
+                "x-keyPath": "",
+                "x-id": "848f1a3b",
+                "format": "",
+                "description": "",
+                "type": "string",
+                "x-index": 49,
+                "title": "昵称",
+                "x-unique": false,
+                "maxLength": 4000
+            },
+            "openId": {
+                "x-required": true,
+                "x-keyPath": "",
+                "x-id": "aa8b4372",
+                "format": "",
+                "description": "",
+                "type": "string",
+                "x-index": 48,
+                "title": "微信openId",
+                "x-unique": true,
+                "maxLength": 256
+            },
+            "_departmentList": {
+                "default": "",
+                "x-system": true,
+                "x-id": "e034a8e",
+                "format": "",
+                "name": "_departmentList",
+                "title": "所属部门",
+                "type": "array",
+                "x-index": 7,
+                "items": {
+                    "type": "string"
+                },
+                "x-unique": false
+            },
+            "cart": {
+                "name": "cart",
+                "format": "one-many",
+                "deleteWay": "doNothing",
+                "title": "cart",
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "_id": {
+                            "name": "_id",
+                            "title": "数据标识",
+                            "type": "string"
+                        }
+                    }
+                },
+                "x-parent": {
+                    "parentFieldKey": "user",
+                    "parentFieldTitle": "用户",
+                    "parentDataSourceName": "o2o_cart"
+                }
+            },
+            "createdAt": {
+                "default": 0,
+                "x-system": true,
+                "x-id": "ec83c75",
+                "format": "datetime",
+                "x-index": 2,
+                "type": "number",
+                "title": "创建时间",
+                "x-unique": false
+            },
+            "createBy": {
+                "default": "",
+                "x-system": true,
+                "x-id": "afed132",
+                "name": "createBy",
+                "format": "father-son",
+                "pattern": "",
+                "x-index": 5,
+                "type": "string",
+                "title": "创建人",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "phoneNumber": {
+                "x-required": false,
+                "x-keyPath": "",
+                "minLength": 11,
+                "x-id": "2c9be31b",
+                "format": "",
+                "description": "",
+                "type": "string",
+                "x-index": 51,
+                "title": "手机号",
+                "x-unique": false,
+                "maxLength": 11
+            },
+            "updateBy": {
+                "default": "",
+                "x-system": true,
+                "x-id": "93a079a",
+                "name": "updateBy",
+                "format": "father-son",
+                "pattern": "",
+                "x-index": 6,
+                "type": "string",
+                "title": "修改人",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "wx_account": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "ed42df9d",
+                "format": "",
+                "description": "",
+                "type": "string",
+                "x-index": 50,
+                "title": "微信号",
+                "x-unique": false,
+                "maxLength": 4000
+            },
+            "_openid": {
+                "default": "",
+                "x-system": true,
+                "x-id": "05177de",
+                "name": "_openid",
+                "format": "",
+                "pattern": "",
+                "description": "仅微信云开发下使用",
+                "x-index": 45,
+                "title": "记录创建者",
+                "type": "string",
+                "x-unique": false
+            },
+            "_id": {
+                "default": "",
+                "x-system": true,
+                "x-id": "782aeb9",
+                "format": "",
+                "pattern": "",
+                "x-index": 1,
+                "type": "string",
+                "title": "数据标识",
+                "x-unique": true
+            },
+            "updatedAt": {
+                "default": 0,
+                "x-system": true,
+                "x-id": "072157b",
+                "format": "datetime",
+                "x-index": 3,
+                "title": "更新时间",
+                "type": "number",
+                "x-unique": false
+            },
+            "order": {
+                "name": "order",
+                "format": "one-many",
+                "deleteWay": "doNothing",
+                "title": "order",
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "_id": {
+                            "name": "_id",
+                            "title": "数据标识",
+                            "type": "string"
+                        }
+                    }
+                },
+                "x-parent": {
+                    "parentFieldKey": "user",
+                    "parentFieldTitle": "用户",
+                    "parentDataSourceName": "o2o_order"
+                }
+            }
+        }
+    },
+    "dbInstanceType": "MYSQL",
+    "title": "o2o用户",
+    "name": "o2o_user",
+    "dbLinkType": "internal",
+    "tableNameRule": "only_name",
+    "type": "database",
+    "childDataSourceNames": null,
+    "updateTime": "2025-01-23T08:45:55",
+    "publishedTableName": "o2o_user",
+    "id": "data-4rB4Fp956",
+    "dbSourceType": "internal_mysql",
+    "methods": [],
+    "fun": "{\"onlineVersion\": 12, \"previewVersion\": 11, \"onlinePublishAt\": 1737621955150, \"prviewPublishAt\": 1737621954441}",
+    "publishStatus": 1,
+    "configuration": {}
+}

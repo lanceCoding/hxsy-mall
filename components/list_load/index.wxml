@@ -1,0 +1,19 @@
+<view class="list-container">
+  <view wx:if="{{status === 1}}" class="loading">
+    <view class="loading-icon"></view>
+    <text>数据加载中...</text>
+  </view>
+  <!-- <view wx:if="{{emptyData}}" class="empty-data">
+    <text>暂无数据</text>
+  </view> -->
+  <view wx:if="{{status === 3}}" class="loading-more">
+    加载失败
+    <text bind:tap="tapHandle">点击刷新</text>
+  </view>
+  <view wx:if="{{status === 4}}" class="empty-data">
+    <text>没有数据</text>
+  </view>
+  <view wx:if="{{status === 2}}" class="empty-data">
+    <text>数据全部加载</text>
+  </view>
+</view>

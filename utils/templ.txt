@@ -1,0 +1,72 @@
+这是一个运费模板，基于腾讯云开发存储；
+{
+  "_id":"e33be08d67a090000215bf603ff85504",
+    "name": "全国标准模板",
+    "enabled": true,
+    "billing_type": "item",
+    "priority": 1,
+    "default_fee": 15,
+    "free_shipping_rules": [
+        {
+            "name": "全国满 100 元包邮",
+            "enabled": true,
+            "regions": [],
+            "conditions": [
+                {
+                    "type": "order_price",
+                    "threshold": 100,
+                    "logic": "AND"
+                }
+            ]
+        }
+    ],
+    "shipping_rules": [
+        {
+            "name": "华东地区首重",
+            "regions": [
+                "上海市",
+                "江苏省"
+            ],
+            "conditions": [
+                {
+                    "type": "item",
+                    "min": 0,
+                    "max": 5,
+                    "base_fee": 8,
+                    "step_unit": 1,
+                    "step_fee": 2
+                }
+            ]
+        }
+    ],
+    "created_at": {
+        "date": "2023-10-01T10:00:00Z"
+    },
+    "updated_at": {
+        "date": "2023-10-01T10:00:00Z"
+    }
+}
+
+写一个小程序端根据省份和数量（item）计算运费的函数
+
+
+// 在小程序页面中获取运费模板数据
+const db = wx.cloud.database();
+let shippingTemplate = null;
+
+async function loadShippingTemplate() {
+  try {
+    const res = await db.collection('shipping_template')
+      .where({ enabled: true })
+      .orderBy('priority', 'asc')
+      .limit(1)
+      .get();
+    
+    if (res.data.length > 0) {
+      shippingTemplate = res.data[0];
+    }
+  } catch (err) {
+    console.error('获取运费模板失败:', err);
+  }
+}
+根据_id来查询规则，不是全部返回。

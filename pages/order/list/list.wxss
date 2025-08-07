@@ -1,0 +1,145 @@
+/**
+ *
+Hailetu *
+ * @author Hailetu
+ */
+ @import '../../../utils/weui.wxss';
+
+page {
+    color: #333;
+    font-size: var(--font-content);
+}
+.tabs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 99;
+    height: 100rpx;
+    
+}
+.weui-navbar__item{
+    
+    font-size: var(--font-content);
+    padding: 20rpx;
+
+}
+.weui-bar__item_on {
+    border-bottom: 4rpx solid #09f;
+}
+.order-container {
+    padding: 0 24rpx;
+    margin: 100rpx 0 40rpx 0;
+}
+/*每一行数据*/
+.row {
+	background: white;
+}
+
+.order-item {
+    pointer-events: auto;
+    margin-top: 10rpx;
+}
+
+/*商户信息*/
+.shop {
+	display: flex;
+	flex-direction: row;
+    align-items: center;
+}
+
+/*名称与状态*/
+.summary {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	/* border-bottom: 1px solid #eee; */
+	height: 60rpx;
+	align-items: center;
+	flex: 1;
+}
+
+/*名称*/
+.title {
+	
+}
+
+/*状态*/
+.status {
+	color: var(--ft-amount);
+	text-align: right;
+}
+
+/*商品信息*/
+.goods {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.goods .images {
+    display: flex; /* 将容器设置为 flex 布局 */
+    flex-direction: row; /* 设置元素横向排列，这是 flex 的默认值，可不写 */
+  }
+  
+.goods .image-item {
+    width: var(--thumb-size); /* 设置元素宽度 */
+    height: var(--thumb-size);/* 设置元素高度 */
+    margin-right: 20rpx; /* 设置元素外边距 */
+    color: white; /* 设置文字颜色 */
+    text-align: center; /* 文字居中 */
+  }
+
+/*商品名称*/
+.goods .title {
+	color: #666;
+}
+
+/*商品小计*/
+.goods .total {
+    color: var(--ft-title);
+    font-size:  var(--font-amount-l);
+	text-align: right;
+	font-weight: bold;
+}
+
+.goods .total:before {
+	content: '￥';
+}
+
+/*支付按钮*/
+.payment {
+    /* width: 100%;
+	display: flex;
+    justify-content: flex-end; */
+    overflow: hidden;
+    border-bottom: 1rpx solid var(--line);
+    padding-bottom: 30rpx;
+}
+
+.payment button {
+    float: right;
+    margin-left: 30rpx;
+	/* margin: 14px 0;
+	border: solid 1px #f60;
+	border-radius: 3px;
+	padding: 7px 20px;
+	color: #f60;
+    z-index: 99999; */
+}
+.payment .datetime{
+    font-size: var(--font-label);
+    color: var(--ft-label);
+    float: left;
+}
+
+/*加载提示*/
+/*上拉加载提示*/
+.loading-indicator {
+	text-align: center;
+	font-size: 12px;
+	margin: 10px 0;
+	line-height: 300%;
+}

@@ -1,0 +1,179 @@
+/* app.wxss */
+page{
+    --thumb-size:128rpx;
+    --radius:20rpx;
+    /* font-size */
+    --font-title: 32rpx;
+    --font-label: 24rpx;
+    --font-content: 28rpx;
+    --font-amount-l: 40rpx;
+
+    /* color */
+    --primary:#0099ff;
+    --ft-title:#333333;
+    --ft-content:#555555;
+    --ft-label:#999999;
+    --btn-main:#3d3d3f;
+    --ft-amount:#ff6000;
+    --bg-primary:#fff;
+    --bg-secondary:#f5f5f5;
+    --line:#f1f1f1;
+    --line-dark:#ededed;
+
+    /* padding */
+    --pg-padding:30rpx;
+} 
+.btn-p-m{
+    background-color: var(--primary);
+    color: var(--bg-primary);
+}
+
+.btn-s-s{
+    background-color: var( --bg-primary);
+    color: var(--ft-amount);
+    font-size: var(--font-label);
+    padding: 10rpx!important;
+    width: 100rpx!important;
+    border: 1rpx solid var(--ft-amount);
+}
+
+.btn-s-p{
+    background-color: var( --bg-primary);
+    color: var(--primary);
+    font-size: var(--font-label);
+    padding: 10rpx!important;
+    width: 120rpx!important;
+    border: 1rpx solid var(--primary);
+}
+    
+/* 订单详情样式 */
+.order-info{
+    /* padding: 0 var(--pg-padding); */
+    font-size: var(--font-content);
+    color:var(--ft-title);
+}
+
+.spu-list .item{
+  display: flex;
+  flex-direction: row;
+    /* padding: 5px 0; */
+    
+	background: white;
+	border-bottom: 2rpx solid var(--line);
+}
+.spu-list .item .left{
+  width: 24%;
+}
+.spu-list .item .right{
+    width: 76%;
+  }
+.spu-list .item .thumb{
+    width: var(--thumb-size);
+    height: var(--thumb-size);
+    margin-right: 20rpx;
+    margin-top: 10rpx;
+    display: inline-table;
+}
+
+.spu-list .item .title{
+    line-height: 2;
+    height: 90rpx;
+}
+
+.spu-list .item .sub-info{
+    width: 100%;
+    overflow: hidden;
+    font-size: var(--font-content);
+}
+
+.spu-list .item .quantity{
+    float: left;
+    width: 50%;
+    font-size: var(--font-label);
+    color: var(--ft-label);
+    
+}
+.spu-list .item .price{
+    float: left;
+    width: 50%;
+    text-align: right;
+    color: var(--ft-amount);
+}
+.order-info .amout {
+    width: 100%;
+    font-size: var(--font-content);
+    color: var(--ft-content);
+    overflow: hidden;
+   
+}
+.order-info .amout-label {
+    float: right;
+    width: 50%;
+    line-height: 2;
+} 
+.order-info .amout-fee {
+    line-height: 2;
+    width: 50%;
+    text-align: right;
+    float: right;
+    color: var(--ft-amount);
+}
+.order-info .amout-total {
+    font-size: var(--font-amount-l);
+}
+
+
+/*用户地址*/
+.address-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+.address-container .bd {
+    flex-grow: 1;
+}
+/*每一项*/
+.address-container .item {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+    align-items: center;
+    font-size: var(--ft-content);
+    color: var(--ft-title);
+	margin-left: 0;
+    line-height: initial;
+    width: 100%;
+}
+
+/*收件人信息*/
+.address-container .item .bd .receiver {
+	
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	margin: 20rpx 0;
+    margin-left: 20rpx;
+    width: 100%;
+}
+
+/*手机号码*/
+.address-container .item .bd .receiver .mobile {
+	margin-left: 20rpx;
+}
+
+/*收件地址*/
+.address-container .item .bd .detail {
+    color:var(--ft-label);
+	font-size: var(--font-content);
+    /* margin: 5px 0; */
+    line-height: 1;
+    margin:0 0rpx 20rpx 20rpx;
+    width: 90%;
+}
+
+/*地理定位图标*/
+.address-container .location {
+	width: 40rpx;
+    height: 40rpx;
+    /* margin-left: var(--pg-padding); */
+}

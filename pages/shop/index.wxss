@@ -1,0 +1,380 @@
+/**
+ *
+
+ *
+
+ * @author Hailetu
+ */
+
+ /*头部部分*/
+/*店招*/
+
+.overlay {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay .close{
+    /* background-color: #ffffff; */
+    opacity: 80%;
+    border-radius: 26rpx;
+    width: 52rpx;
+    height: 52rpx;
+    position: fixed;
+    right: 20rpx;
+    top:90rpx;
+    z-index: 999;
+}
+.overlay.show {
+    display: flex;
+}
+
+.overlay-content {
+    margin-top: 20%;
+    background-color: var(--bg-primary);
+    width: 100%;
+    height: 100%;
+    position: relative;
+    /* margin-bottom: 220rpx; */
+    /* padding-bottom:60rpx; */
+}
+
+.overlay-scroll {
+    height: calc(100% - 50px);
+    overflow-y: auto;
+}
+.overlay-scroll .cover{
+    width: 100%;
+}
+.overlay-scroll .detail{
+    padding: var(--pg-padding);
+    font-size: var(--font-content);
+    color: var(--ft-content);
+}
+
+.overlay-scroll .detail .title{
+    font-size: var(--font-amount-l);
+}
+.overlay-scroll .detail .sub-title{
+    color: var(--ft-title);
+    font-size: var(--font-title);
+    margin-bottom: 24rpx;
+}
+
+.overlay-scroll .detail .detail-image{
+        display: block; /* 将图片转换为块级元素 */
+        width: 100%; /* 根据需要设置图片宽度 */
+}
+.overlay-scroll .detail .bottom {
+    height: 200rpx;
+}
+.overlay-scroll .blank{
+    height: 24rpx;
+    background-color: var(--bg-secondary);
+}
+
+/*主体部分*/
+/*分类与菜品*/
+.bd {
+    /* margin-top: 6px; */
+    /* padding-bottom: 50px;
+    display: flex;
+    flex-direction: row; */
+    display: flex; /* 新增：使子元素水平排列 */
+    flex-direction: row; /* 新增：明确水平排列方向 */
+    /* height: calc(100vh - 100rpx);  */
+    padding-bottom: 200rpx;
+    box-sizing: border-box; /* 新增：确保内边距和边框包含在宽度和高度内 */
+}
+
+/*分类容器*/
+.category-container {
+    background:var(--bg-secondary);
+    position: fixed;
+    top:0;
+    left: 0;
+    /* padding: 0px 0 15px 0; */
+    width: 30%;
+    /* background-color:   var(--primary); */
+    height: 100%; /* 新增：设置高度为 100% 占满父容器 */
+    overflow-y: auto; /* 新增：允许垂直滚动 */
+    box-sizing: border-box; /* 新增：确保内边距和边框包含在宽度和高度内 */
+}
+
+.category-container .category-scroll{
+    display: flex;
+    flex-direction: column;
+    height: 110%; /* 设置滚动容器高度为 100% 以占满父容器 */
+    overflow-y: auto;
+    /* padding-bottom: 100rpx; */
+    /* margin-bottom: 100rpx; */
+    -webkit-overflow-scrolling: touch; /* 增强 iOS 设备滚动体验 */
+    box-sizing: border-box; /* 新增：确保内边距和边框包含在宽度和高度内 */
+}
+
+/*分类项*/
+.category-item {
+    background: var(--bg-secondary);
+    position: relative;
+    border-bottom: 1px solid var(--line-dark);
+    box-sizing: border-box; /* 新增：确保内边距和边框包含在宽度和高度内 */
+}
+
+/*分类文本*/
+.category-content {
+    line-height:300%; /* 修改：使用 rpx 作为单位，确保在不同设备上显示一致 */
+    font-size: var(--font-content);
+    color:var(--ft-content);
+    padding-left: 30rpx; /* 修改：使用 rpx 作为单位，确保在不同设备上显示一致 */
+    box-sizing: border-box; /* 新增：确保内边距和边框包含在宽度和高度内 */
+}
+
+/*分类文本高亮*/
+.category-item-active {
+    background: var(--bg-primary);
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box; /* 新增：确保内边距和边框包含在宽度和高度内 */
+}
+
+/*分类文本高亮左侧标识*/
+.category-item-active:before {
+    content: "";
+    width: 6rpx; /* 修改：使用 rpx 作为单位，确保在不同设备上显示一致 */
+    background:   var(--primary); /* 修改：添加背景颜色 */
+    box-sizing: border-box; /* 新增：确保内边距和边框包含在宽度和高度内 */
+}
+
+/*菜品列表容器*/
+.food-container {
+    width: 70%;
+    margin-left: 30%;
+    height: 100%; /* 新增：设置高度为 100% 占满父容器 */
+    overflow-y: auto; /* 新增：允许垂直滚动 */
+    box-sizing: border-box; /* 新增：确保内边距和边框包含在宽度和高度内 */
+}
+
+/*菜品列表*/
+.food-item {
+    display: flex;
+    flex-direction: row;
+    padding: 10rpx 0;
+    background: white;
+    border-bottom: 1px solid var(--line);
+}
+
+/*主图容器*/
+.food-hd {
+    width: 30%;
+}
+
+/*主图*/
+.thumb {
+    width: var(--thumb-size);
+    height: var(--thumb-size);
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    margin-top: 10rpx;
+    display: inline-table;
+}
+
+/*商品信息*/
+.food-bd {
+    width: 70%;
+    margin-left: 20rpx;
+}
+
+/*菜名*/
+.title {
+    font-weight: bold;
+    font-size: var(--font_title);
+    padding: 8rpx 0;
+    color: var(--ft-title);
+    margin-left: 0;
+}
+
+/*简述*/
+.summary {
+    font-size: var(--font-label);
+    color: var(--ft-label);
+}
+
+/*价格与数量加减器*/
+.price-stepper {
+    padding: 8rpx 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/*价格*/
+.price {
+    flex: 1;
+    font-size:var(--font-title);
+    color:var(--ft-amount);
+}
+.price-l {
+    flex: 1;
+    font-size:48rpx;
+    font-weight: bold;
+    color:var(--ft-amount);
+}
+.stock {
+    color: var(--ft-label);
+    line-height: 1.6;
+}
+/*人民币符号*/
+.price-l:before, .price:before {
+    content: "￥";
+    font-size: var(--font-content);
+}
+
+/*加减器*/
+.stepper {
+    /* background-color: aquamarine; */
+    padding-right:10rpx;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/*加号*/
+.symbol {
+    width: 48rpx;
+    height: 48rpx;
+    margin: 0 20rpx;
+}
+
+/*数量*/
+.value {
+    font-size: var(--font-content);
+}
+
+/*购物车模块*/
+.cart-detail,
+.cart-detail .mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.cart-detail .mask {
+    background: rgba(0, 0, 0, 0.7);
+    height: 100%;
+}
+
+.cart-detail .list {
+    position: absolute;
+    top: 300rpx;
+    left: 0;
+    bottom: 100rpx;
+    width: 100%;
+    background-color:var(--bg-primary);
+    padding-top: 40rpx;
+}
+
+.cart-detail .list .scroll{
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.cart-detail .list .item {
+    display: -webkit-flex;
+    color: var(-ft-title);
+    font-size: var(--font-title);
+    line-height: 1.8;
+    padding: 10rpx 40rpx 50rpx 40rpx;
+}
+
+.cart-detail .list .item .name {
+    -webkit-flex: 1;
+}
+
+.cart-detail .list .item .total {
+    margin-left: 160rpx;
+    text-align: left;
+    color:var(--ft-amount);
+    font-weight: bold;
+}
+
+.cart-detail .list .item .num {
+    width: 50rpx;
+    text-align: center;
+    margin: 0 5rpx;
+}
+
+.cart {
+    border-top: 2rpx solid var(--line);
+    display: -webkit-flex;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100rpx;
+    background:var(--bg-primary);
+    z-index: 99;
+}
+
+.cart .data {
+    -webkit-flex: 1;
+}
+
+.cart .data .icon {
+    position: absolute;
+    left: 40rpx;
+    top: -20rpx;
+    width: 100rpx;
+    height: 100rpx;
+    background: var(--btn-main);
+    border-radius: 50%;
+}
+
+.cart .data .icon image {
+    position: absolute;
+    left: 15rpx;
+    top: 15rpx;
+    width: 70rpx;
+    height: 70rpx;
+}
+
+.cart .data .icon .count {
+    position: absolute;
+    left: 70rpx;
+    top: -10rpx;
+    font-size: 30rpx;
+    line-height: 40rpx;
+    padding: 0 12rpx;
+    color:var(--bg-primary);
+    background: var(--ft-amount);
+    border-radius: 20rpx;
+}
+
+.cart .data .total {
+    color: var(--ft-amount);
+    font-size: var(--font-amount-l);
+    line-height: 100rpx;
+    padding-left: 160rpx;
+}
+
+.cart button {
+    width: 200rpx;
+    height: 100%;
+    line-height: 1.8;
+    font-size: 40rpx;
+    background: var(--btn-main);
+    color: white;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+}

@@ -1,0 +1,98 @@
+<!-- checkout.wxml -->
+<!-- 地址选择 -->
+<view class="container">
+	<view class="address-container">
+        <!-- 配送选择 -->
+        
+        <view wx:if="{{types_selected != 'DELI'}}" >
+            <view class="item address-check" >
+                <image src="/images/location.png" class="location" />
+                <view class="bd">
+                    <view class="receiver">
+                        <view class="firstname">{{user.nickName}}</view>
+                        <!-- <view class="gender">{{address.gender == 1 ? '先生' : '女士'}}</view> -->
+                        <view class="mobile">{{user.phoneNumber}}</view>
+                    </view>
+                    <view class="detail">自提地址：{{shop.shop_info.location}}{{shop.shop_info.address}}  {{shop.shop_info.phone}}</view>
+                    <view class="detail">收货说明：{{shop.shop_info.notes}}</view>
+                </view>
+                <view class="arrow"></view>
+            </view>
+        </view>
+        <!-- 配送展示 -->
+        <view wx:if="{{types_selected == 'DELI'}}">
+            <!-- 用户尚未添加地址时 -->
+            <view class="address" bindtap="selectAddress" wx:if="{{!address}}">
+                <image src="/images/location.png" class="location" />
+                <view class="title">请选择一个收货地址</view>
+                <view class="arrow"></view>
+            </view>
+            <!-- 用户已添加过地址 -->
+            <view class="item address-check" wx:else bindtap="selectAddress">
+                <image src="/images/location.png" class="location" />
+                <view class="bd">
+                    <view class="receiver">
+                        <view class="firstname">{{address.name}}</view>
+                        <!-- <view class="gender">{{address.gender == 1 ? '先生' : '女士'}}</view> -->
+                        <view class="mobile">{{address.phone}}</view>
+                    </view>
+                    <view class="detail">{{address.location}}{{address.address}}</view>
+                    <view class="detail">收货说明：{{shop.shop_info.notes}}</view>
+                </view>
+                <view class="arrow"></view>
+            </view>
+        </view>
+		<image src="/images/mail.png" class="mail" mode="widthFix" />
+	</view>
+	<!-- 支付方式 -->
+	<!-- 在线支付与货到付款 -->
+    
+	<!-- 商品清单 -->
+	<view class="order-info address-check">
+		<!-- 清单 -->
+     <view class="title">商品列表
+      </view>
+		<view class="spu-list">
+			<view class="item" wx:for="{{order.order_item}}" wx:key="_id">
+                <view class="left">
+                <image class="thumb" mode="aspectFill" src="{{item.snapshot.cover}}" />
+                </view>
+                <view class="right">
+                <view class="title">{{item.snapshot.name}}</view>
+                <view class='sub-info'>
+                    <view class="quantity">x{{item.count}}</view>
+                    <view class="price">¥ {{item.pay_price}}</view>
+                </view>
+                </view>
+			</view>
+		</view>
+
+		<!-- 配送费 -->
+		<view class="amout" wx:if="{{types_selected == 'DELI'}}">
+            
+		</view>
+
+        <view class="amout">
+            <view class="amout-fee amout-total">¥ {{amount + express_fee}}</view>
+			<view class="amout-label ">合计：</view>
+		</view>
+	
+	</view>
+	<!-- 备注信息 -->
+	<view class="remark">
+		<view class="item disperse" bindtap="naviToRemark">
+			<view class="title-label">订单备注</view>
+      <textarea class="content"
+        placeholder="请输入需要备注内容，不超过100字" 
+        value="{{notes}}"
+        bindinput="getNotes"
+        ></textarea>
+			<view class="arrow"></view>
+		</view>
+	</view>
+</view>
+<!-- 提交订单 -->
+<view class="footer">
+	<view class="payment">{{amount + express_fee}}</view>
+	<view class="checkout" bindtap="payment">去支付</view>
+</view>

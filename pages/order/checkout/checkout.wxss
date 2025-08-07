@@ -1,0 +1,131 @@
+/**
+ *
+
+Hailetu *
+
+ * @author Hailetu
+ */
+ 
+/*checkout.wxss*/
+
+.container {
+	margin-bottom: 120rpx;
+}
+
+/*地址容器*/
+.address-check {
+	padding: 0 var(--pg-padding);
+}
+.radio-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: var(--font-title);
+  }
+  
+  .radio-btn {
+    margin-right: 20rpx;
+  }
+  
+  .radio-btn-normal {
+    padding: 20rpx 40rpx;
+    color:var(--ft-title);
+    cursor: pointer;
+  }
+  
+  .radio-btn-checked {
+    padding: 20rpx 40rpx;
+    color: var(--primary);
+    border-bottom: 4rpx solid var(--primary);
+  }
+
+/*收货地址*/
+.address {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+    align-items: center;
+    padding: 40rpx var(--pg-padding);
+    position: relative;
+    color: var(--ft-label);
+}
+
+.address .title {
+    font-size: var(--ft-content);
+    padding-left: 20rpx;
+}
+
+/*航邮花边*/
+.mail {
+	width: 100%;
+	margin-bottom: 32rpx;
+}
+
+/*.商品清单信息*/
+
+/*备注信息*/
+.remark {
+	background: white;
+	padding: var(--pg-padding);
+}
+.remark .content{
+    font-size: var(--font-content);
+}
+.title-label {
+    flex: 1;
+    font-size: var(--font-title);
+    color: var(--ft-title);
+    line-height: 2;
+}
+
+.arrow {
+	flex: 1;
+}
+
+.subtitle-label {
+	text-align: right;
+	margin-right: 30px;
+	flex: 4;
+}
+
+
+.disperse {
+	justify-content: space-between;
+}
+/*.备注信息*/
+
+
+/*底部操作区域*/
+.footer {
+	display: flex;
+	flex-direction: row;
+	height: 100rpx;
+	line-height: 100rpx;
+	color: white;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	font-size: 16px;
+}
+
+.footer .payment {
+	width: 70%;
+	background: var(--btn-main);
+	padding-left: 30rpx;
+}
+
+.footer .payment:before {
+	content: "待支付￥"
+}
+
+.footer .checkout {
+	width: 30%;
+	background: var(--primary);
+	text-align: center;
+}
+
+/*.底部操作区域*/
+
+

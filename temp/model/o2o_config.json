@@ -1,0 +1,404 @@
+{
+    "previewTableName": "o2o_config-preview",
+    "publishCacheStatus": "ready",
+    "subType": "database",
+    "schema": {
+        "x-primary-column": "name",
+        "x-kind": "tcb",
+        "x-defaultMethods": [
+            "wedaCreate",
+            "wedaUpdate",
+            "wedaDelete",
+            "wedaGetItem",
+            "wedaGetRecords",
+            "wedaGetList",
+            "wedaBatchCreate",
+            "wedaBatchUpdate",
+            "wedaBatchDelete"
+        ],
+        "type": "object",
+        "x-relatedType": "exist",
+        "x-viewId": "view-6hnja524io",
+        "required": [
+            "name",
+            "banner",
+            "trans_type"
+        ],
+        "properties": {
+            "owner": {
+                "default": "",
+                "x-system": true,
+                "x-id": "8996218",
+                "name": "owner",
+                "format": "father-son",
+                "pattern": "",
+                "x-index": 4,
+                "title": "所有人",
+                "type": "string",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "trading_hours": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "c39793fd",
+                "format": "",
+                "description": "",
+                "type": "array",
+                "x-index": 49,
+                "title": "营业时间",
+                "items": {
+                    "format": "time",
+                    "type": "number"
+                },
+                "x-unique": false
+            },
+            "shop_info": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "45cf23f7",
+                "format": "",
+                "description": "",
+                "type": "object",
+                "x-index": 52,
+                "title": "店铺信息",
+                "list": [
+                    {
+                        "x-required": false,
+                        "x-keyPath": "",
+                        "x-id": "e4b343d6",
+                        "format": "",
+                        "name": "notes",
+                        "description": "",
+                        "pId": "45cf23f7",
+                        "type": "string",
+                        "x-index": 10,
+                        "title": "备注",
+                        "x-unique": false,
+                        "maxLength": 4000
+                    },
+                    {
+                        "x-required": false,
+                        "x-keyPath": "",
+                        "x-id": "d88922ff",
+                        "format": "phone",
+                        "name": "phone",
+                        "description": "",
+                        "pId": "45cf23f7",
+                        "type": "string",
+                        "x-index": 8,
+                        "title": "联系电话",
+                        "x-unique": false
+                    },
+                    {
+                        "x-required": false,
+                        "x-keyPath": "",
+                        "x-id": "d83425a5",
+                        "format": "",
+                        "name": "address",
+                        "description": "",
+                        "pId": "45cf23f7",
+                        "type": "string",
+                        "x-index": 6,
+                        "title": "地址",
+                        "x-unique": false,
+                        "maxLength": 4000
+                    },
+                    {
+                        "x-required": false,
+                        "x-area-code-type": 2,
+                        "x-keyPath": "",
+                        "x-id": "c13632b7",
+                        "format": "x-area-code",
+                        "name": "location",
+                        "description": "",
+                        "pId": "45cf23f7",
+                        "type": "string",
+                        "x-index": 4,
+                        "title": "省市",
+                        "x-unique": false
+                    }
+                ],
+                "x-unique": false,
+                "properties": {
+                    "address": {
+                        "x-required": false,
+                        "x-keyPath": "",
+                        "x-id": "d83425a5",
+                        "format": "",
+                        "name": "address",
+                        "description": "",
+                        "type": "string",
+                        "x-index": 6,
+                        "title": "地址",
+                        "x-unique": false,
+                        "maxLength": 4000
+                    },
+                    "notes": {
+                        "x-required": false,
+                        "x-keyPath": "",
+                        "x-id": "e4b343d6",
+                        "format": "",
+                        "name": "notes",
+                        "description": "",
+                        "type": "string",
+                        "x-index": 10,
+                        "title": "备注",
+                        "x-unique": false,
+                        "maxLength": 4000
+                    },
+                    "phone": {
+                        "x-required": false,
+                        "x-keyPath": "",
+                        "x-id": "d88922ff",
+                        "format": "phone",
+                        "name": "phone",
+                        "description": "",
+                        "type": "string",
+                        "x-index": 8,
+                        "title": "联系电话",
+                        "x-unique": false
+                    },
+                    "location": {
+                        "x-required": false,
+                        "x-area-code-type": 2,
+                        "x-keyPath": "",
+                        "x-id": "c13632b7",
+                        "format": "x-area-code",
+                        "name": "location",
+                        "description": "",
+                        "type": "string",
+                        "x-index": 4,
+                        "title": "省市",
+                        "x-unique": false
+                    }
+                },
+                "required": []
+            },
+            "trans_tpl": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "8bfb6a2c",
+                "format": "",
+                "description": "",
+                "type": "string",
+                "x-index": 2,
+                "title": "运费模板",
+                "x-unique": false,
+                "maxLength": 4000
+            },
+            "_departmentList": {
+                "default": "",
+                "x-system": true,
+                "x-id": "4ce44f6",
+                "format": "",
+                "name": "_departmentList",
+                "title": "所属部门",
+                "type": "array",
+                "x-index": 7,
+                "items": {
+                    "type": "string"
+                },
+                "x-unique": false
+            },
+            "latitude": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "8e94bae4",
+                "format": "",
+                "description": "",
+                "type": "number",
+                "x-index": 55,
+                "title": "纬度",
+                "x-unique": false
+            },
+            "fee": {
+                "x-required": false,
+                "default": 0,
+                "x-keyPath": "",
+                "x-id": "3a57c4b5",
+                "format": "",
+                "description": "",
+                "type": "number",
+                "x-index": 46,
+                "title": "运费",
+                "x-unique": false
+            },
+            "banner": {
+                "x-image-size": 5242880,
+                "x-required": true,
+                "x-keyPath": "",
+                "x-id": "fab2d1c6",
+                "format": "x-image",
+                "description": "",
+                "type": "string",
+                "x-index": 50,
+                "title": "头图",
+                "x-unique": false,
+                "maxLength": 1024
+            },
+            "banners": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "d25d2db8",
+                "format": "",
+                "description": "",
+                "type": "array",
+                "x-index": 47,
+                "title": "轮播图",
+                "items": {
+                    "x-image-size": 5242880,
+                    "format": "x-image",
+                    "type": "string"
+                },
+                "x-unique": false
+            },
+            "createdAt": {
+                "default": 0,
+                "x-system": true,
+                "x-id": "94b407a",
+                "format": "datetime",
+                "x-index": 2,
+                "type": "number",
+                "title": "创建时间",
+                "x-unique": false
+            },
+            "createBy": {
+                "default": "",
+                "x-system": true,
+                "x-id": "35b4304",
+                "name": "createBy",
+                "format": "father-son",
+                "pattern": "",
+                "x-index": 5,
+                "type": "string",
+                "title": "创建人",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "updateBy": {
+                "default": "",
+                "x-system": true,
+                "x-id": "93a079a",
+                "name": "updateBy",
+                "format": "father-son",
+                "pattern": "",
+                "x-index": 6,
+                "type": "string",
+                "title": "修改人",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "_openid": {
+                "default": "",
+                "x-system": true,
+                "x-id": "f3506d5",
+                "name": "_openid",
+                "format": "",
+                "pattern": "",
+                "description": "仅微信云开发下使用",
+                "x-index": 45,
+                "title": "记录创建者",
+                "type": "string",
+                "x-unique": false
+            },
+            "name": {
+                "x-required": true,
+                "x-keyPath": "",
+                "x-id": "7fc1c4e5",
+                "format": "",
+                "description": "",
+                "type": "string",
+                "x-index": 51,
+                "title": "店铺名称",
+                "x-unique": false,
+                "maxLength": 4000
+            },
+            "logo": {
+                "x-image-size": 5242880,
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "fb1c55b1",
+                "format": "x-image",
+                "description": "",
+                "type": "string",
+                "x-index": 48,
+                "title": "商标",
+                "x-unique": false,
+                "maxLength": 1024
+            },
+            "_id": {
+                "default": "",
+                "x-system": true,
+                "x-id": "72b6693",
+                "format": "",
+                "pattern": "",
+                "x-index": 1,
+                "type": "string",
+                "title": "数据标识",
+                "x-unique": true
+            },
+            "updatedAt": {
+                "default": 0,
+                "x-system": true,
+                "x-id": "21133b6",
+                "format": "datetime",
+                "x-index": 3,
+                "title": "更新时间",
+                "type": "number",
+                "x-unique": false
+            },
+            "longitude": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "58ef8d38",
+                "format": "",
+                "description": "",
+                "type": "number",
+                "x-index": 54,
+                "title": "经度",
+                "x-unique": false
+            },
+            "trans_type": {
+                "x-required": true,
+                "default": "express",
+                "x-keyPath": "",
+                "x-id": "2bbd9b2b",
+                "format": "",
+                "description": "",
+                "type": "string",
+                "x-index": 53,
+                "title": "配送类型",
+                "x-unique": false,
+                "maxLength": 4000
+            }
+        }
+    },
+    "dbInstanceType": "MYSQL",
+    "title": "o2o店铺信息",
+    "name": "o2o_config",
+    "dbLinkType": "internal",
+    "tableNameRule": "only_name",
+    "type": "database",
+    "childDataSourceNames": null,
+    "updateTime": "2025-02-21T03:08:45",
+    "publishedTableName": "o2o_config",
+    "id": "data-4tSaR8GUL",
+    "dbSourceType": "internal_mysql",
+    "methods": [],
+    "fun": "{\"onlineVersion\": 32, \"previewVersion\": 31, \"onlinePublishAt\": 1740107325154, \"prviewPublishAt\": 1740107324015}",
+    "publishStatus": 1,
+    "configuration": {}
+}

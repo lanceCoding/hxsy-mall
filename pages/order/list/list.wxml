@@ -1,0 +1,55 @@
+<!-- list.wxml -->
+<!-- 空白占位 -->
+<view class="page">
+  <view class="weui-tab tabs">
+    <view class="weui-navbar">
+      <view class="weui-navbar__item {{item.key === status ? 'weui-bar__item_on item_write' : ''}}" 
+        bindtap="onTabChange"  wx:for="{{tabs}}" wx:for-index="index" wx:for-item="item" wx:key="index" data-id="{{item.key}}" >{{item.text}}</view>
+    </view>
+  </view>
+
+ <!-- 订单列表 -->
+ <view class="order-container">
+	<!-- 每个订单 -->
+	<view data-index="{{index}}" class="row" wx:for="{{orderList}}" wx:key="_id" >
+		<!-- 商品信息 -->
+        <view class="order-item" bindtap="showDetail" data-id="{{item._id}}">
+            <!-- 商户信息 -->
+            <view class="shop">
+                <view class="summary">
+                    <view class="title">{{item.typeDesc}}订单：{{item._id}}</view>
+                    <view class="status">
+                        <block>{{item.statusDesc}}</block>
+                    </view>
+                </view>
+            </view>
+            <!-- 商品信息 -->
+            <view class="goods">
+                <view class="images" >
+                    <view wx:for="{{item.order_item}}" wx:key="_id" wx:if="{{index < 4}}" 
+    >
+                        <image class="image-item" src="{{item.snapshot.cover}}" mode="aspectFill"/>
+                    </view>
+                </view>
+                <!-- <view class="title">{{item.trans_type}}</view> -->
+                <view class="total">{{item.amount}}</view>
+            </view>
+        </view>
+        
+		<!-- 支付按钮 -->
+		<view class="payment" >
+            <view class="datetime">{{item.createdAt}}</view>
+            <button class="btn-s-s" wx:if="{{item.pay_btn}}" data-id="{{item._id}}" bindtap="payment" >
+				支付
+			</button>
+			<button wx:if="{{item.cancel_btn}}"  class="btn-s-p" wx:if="{{item.confirm}}" data-order="{{item}}" bindtap="onConfirmReceive" >
+			    确认收货
+			</button>
+			<button wx:if="{{item.cancel_btn}}"  class="btn-s-p" wx:if="{{item.pay_btn}}" data-order="{{item}}" bindtap="onCancel" >
+				取消
+			</button>
+		</view>
+	</view>
+ </view>
+ <list_load status="{{listLoading}}"></list_load>
+</view>
